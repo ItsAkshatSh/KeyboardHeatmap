@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width". initial-scale="1.0">
+    <title>Keyboard Heatmap Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Keyboard Heatmap Visualizer</h1>
+            <p>start rpying to see your keyboard usage patterns!</p>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" id="toggleMode">Switch to cumulative</button>
+            <button class="btn btn-secondary" id="clearData">Clear data</button>
+            <button class="btn btn-success" id="toggleMode">Export Heatmap</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Total Keys:</span>
+                <span class="stat-value" id="totalKeys">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Most Used:</span>
+                <span clss="stat-value" id="mostUsed">-</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Mode:</span>
+                <span class="stat-value" id="currentMode">Live View</span>
+            </div>
+        </div>
+
+        <div classs="keyboard-container" id="keyboardContainer">
+            <div class="keyboard-row">
+                <div class="key function-key" data-key="Escape">ESC</div>
+                <div class="key function-key" data-key="F1">F1</div>
+                <div class="key function-key" data-key="F2">F2</div>
+                <div class="key function-key" data-key="F3">F3</div>
+                <div class="key function-key" data-key="F4">F4</div>
+                <div class="key function-key" data-key="F5">F5</div>
+                <div class="key function-key" data-key="F6">F6</div>
+                <div class="key function-key" data-key="F7">F7</div>
+                <div class="key function-key" data-key="F8">F8</div>
+                <div class="key function-key" data-key="F9">F9</div>
+                <div class="key function-key" data-key="F10">F10</div>
+                <div class="key function-key" data-key="F11">F11</div>
+                <div class="key function-key" data-key="F12">F12</div>
+            </div>
+
+            <div class="keyboard-row">
+                <div class="key" data-key="`">~<br>`</div>
+                <div class="key" data-key="1">!<br>1</div>
+                <div class="key" data-key="2">@<br>2</div>
+                <div class="key" data-key="3">#<br>3</div>
+                <div class="key" data-key="4">$<br>4</div>
+                <div class="key" data-key="5">%<br>5</div>
+                <div class="key" data-key="6">^<br>6</div>
+                <div class="key" data-key="7">&<br>7</div>
+                <div class="key" data-key="8">*<br>8</div>
+                <div class="key" data-key="9">(<br>9</div>
+                <div class="key" data-key="0">)<br>0</div>
+                <div class="key" data-key="-">_<br>-</div>
+                <div class="key" data-key="=">+<br>=</div>
+                <div class="key wide-key" data-key="Backspace">BACKSPACE</div>
+            </div>
+
+            <div class="keyboard-row">
+                <div class="key wide-key" data-key="Tab">TAB</div>
+                <div class="key" data-key="q">Q</div>
+                <div class="key" data-key="w">W</div>
+                <div class="key" data-key="e">E</div>
+                <div class="key" data-key="r">R</div>
+                <div class="key" data-key="t">T</div>
+                <div class="key" data-key="y">Y</div>
+                <div class="key" data-key="u">U</div>
+                <div class="key" data-key="i">I</div>
+                <div class="key" data-key="o">O</div>
+                <div class="key" data-key="p">P</div>
+                <div class="key" data-key="[">{<br>[</div>
+                <div class="key" data-key="]">}<br>]</div>
+                <div class="key wide-key" data-key="\\">|<br>\</div>
+            </div>
+
+            <div class="keyboard-row">
+                <div class ="key extra-wide-key" data-key="CapsLock">CAPS</div>
+                <div class="key" data-key="a">A</div>
+                <div class="key" data-key="s">S</div>
+                <div class="key" data-key="d">D</div>
+                <div class="key" data-key="f">F</div>
+                <div class="key" data-key="g">G</div>
+                <div class="key" data-key="h">H</div>
+                <div class="key" data-key="j">J</div>
+                <div class="key" data-key="k">K</div>
+                <div class="key" data-key="l">L</div>
+                <div class="key" data-key=";">:<br>;</div>
+                <div class="key" data-key="'">"<br>'</div>
+                <div class="key extra-wide-key" data-key="Enter">ENTER</div>
+            </div>
+
+            <div class="keyboard-row">
+                <div class="key extra-wide-key" data-key="Shift">SHIFT</div>
+                <div class="key" data-key="z">Z</div>
+                <div class="key" data-key="x">X</div>
+                <div class="key" data-key="c">C</div>
+                <div class="key" data-key="v">V</div>
+                <div class="key" data-key="b">B</div>
+                <div class="key" data-key="n">N</div>
+                <div class="key" data-key="m">M</div>
+                <div class="key" data-key=".">&gt;<br>.</div>
+                <div class="key" data-key="/">?<br>/</div>
+                <div class="key extra-wide-key" data-key="Shift">SHIFT</div>
+            </div>
+
+            <div class="keyboard-row">
+                <div class="key wide-key" data-key="Control">CTRL</div>
+                <div class="key wide-key" data-key="Meta">WIN</div>
+                <div class="key wide-key" data-key="Alt">ALT</div>
+                <div class="key spacebar" data-key=" ">SPACEBAR</div>
+                <div class="key wide-key" data-key="Alt">ALT</div>
+                <div class="key wide-key" data-key="Meta">WIN</div>
+                <div class="key wide-key" data-key="ContextMenu">MENU</div>
+                <div class="key wide-key" data-key="Control">CTRL</div>
+            </div>
+        </div>
+
+        <div class="typing-area">
+            <textarea id="typingArea" placeholder="Start typing here to generate your keyboard heatmap..."></textarea>
+        </div>
+
+        <canvas id="exportCanvas" style="display: none;"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
