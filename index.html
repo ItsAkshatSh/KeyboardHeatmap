@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width". initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keyboard Heatmap Visualizer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -10,13 +10,39 @@
     <div class="container">
         <div class="header">
             <h1>Keyboard Heatmap Visualizer</h1>
-            <p>start rpying to see your keyboard usage patterns!</p>
+            <p>Start typing to see your keyboard usage patterns!</p>
         </div>
 
         <div class="controls">
-            <button class="btn btn-primary" id="toggleMode">Switch to cumulative</button>
-            <button class="btn btn-secondary" id="clearData">Clear data</button>
-            <button class="btn btn-success" id="toggleMode">Export Heatmap</button>
+            <button class="btn btn-primary" id="toggleMode">Switch to Cumulative</button>
+            <button class="btn btn-secondary" id="clearData">Clear Data</button>
+            <button class="btn btn-success" id="exportImage">Export Heatmap</button>
+            <button class="btn btn-minimize" id="minimizeBtn">Minimize</button>
+        </div>
+
+        <div class="session-stats" id="sessionStats">
+            <div class="session-header">
+                <span class="session-title">Current Session</span>
+                <span class="session-time" id="sessionTime">00:00</span>
+            </div>
+            <div class="session-summary">
+                <div class="session-metric">
+                    <span class="session-metric-value" id="sessionKeys">0</span>
+                    <span class="session-metric-label">Keys</span>
+                </div>
+                <div class="session-metric">
+                    <span class="session-metric-value" id="sessionWPM">0</span>
+                    <span class="session-metric-label">WPM</span>
+                </div>
+                <div class="session-metric">
+                    <span class="session-metric-value" id="sessionAccuracy">100%</span>
+                    <span class="session-metric-label">Accuracy</span>
+                </div>
+                <div class="session-metric">
+                    <span class="session-metric-value" id="sessionTopKey">-</span>
+                    <span class="session-metric-label">Top Key</span>
+                </div>
+            </div>
         </div>
 
         <div class="stats">
@@ -26,7 +52,7 @@
             </div>
             <div class="stat-item">
                 <span class="stat-label">Most Used:</span>
-                <span clss="stat-value" id="mostUsed">-</span>
+                <span class="stat-value" id="mostUsed">-</span>
             </div>
             <div class="stat-item">
                 <span class="stat-label">Mode:</span>
@@ -34,7 +60,7 @@
             </div>
         </div>
 
-        <div classs="keyboard-container" id="keyboardContainer">
+        <div class="keyboard-container" id="keyboardContainer">
             <div class="keyboard-row">
                 <div class="key function-key" data-key="Escape">ESC</div>
                 <div class="key function-key" data-key="F1">F1</div>
@@ -86,7 +112,7 @@
             </div>
 
             <div class="keyboard-row">
-                <div class ="key extra-wide-key" data-key="CapsLock">CAPS</div>
+                <div class="key extra-wide-key" data-key="CapsLock">CAPS</div>
                 <div class="key" data-key="a">A</div>
                 <div class="key" data-key="s">S</div>
                 <div class="key" data-key="d">D</div>
@@ -110,6 +136,7 @@
                 <div class="key" data-key="b">B</div>
                 <div class="key" data-key="n">N</div>
                 <div class="key" data-key="m">M</div>
+                <div class="key" data-key=",">&lt;<br>,</div>
                 <div class="key" data-key=".">&gt;<br>.</div>
                 <div class="key" data-key="/">?<br>/</div>
                 <div class="key extra-wide-key" data-key="Shift">SHIFT</div>
@@ -134,7 +161,31 @@
         <canvas id="exportCanvas" style="display: none;"></canvas>
     </div>
 
+    <div class="minimize-panel" id="minimizePanel">
+        <div class="minimize-header">
+            <span class="minimize-title">Keyboard Tracker</span>
+            <button class="btn btn-primary" id="restoreBtn" style="padding: 4px 8px; font-size: 12px;">Restore</button>
+        </div>
+        <div class="minimize-stats">
+            <div class="minimize-stat">
+                <span class="minimize-stat-value" id="miniTotalKeys">0</span>
+                <span class="minimize-stat-label">Total Keys</span>
+            </div>
+            <div class="minimize-stat">
+                <span class="minimize-stat-value" id="miniSessionKeys">0</span>
+                <span class="minimize-stat-label">Session</span>
+            </div>
+            <div class="minimize-stat">
+                <span class="minimize-stat-value" id="miniWPM">0</span>
+                <span class="minimize-stat-label">WPM</span>
+            </div>
+            <div class="minimize-stat">
+                <span class="minimize-stat-value" id="miniMostUsed">-</span>
+                <span class="minimize-stat-label">Top Key</span>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
-
 </html>

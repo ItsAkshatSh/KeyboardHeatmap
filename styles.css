@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    color: white;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #4ecdc4;
+}
+
+.keyboard-container {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.keyboard-row {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 6px;
+    justify-content: center;
+}
+
+.keyboard-row:last-child {
+    margin-bottom: 0;
+}
+
+.key {
+    background: linear-gradient(145deg, #2c3e50, #34495e);
+    border: 2px solid #34495e;
+    border-radius: 8px;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    min-height: 40px;
+    min-width: 40px;
+    flex: 0 0 40px;
+}
+
+.key:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+.wide-key {
+    flex: 0 0 60px;
+    min-width: 60px;
+}
+
+.extra-wide-key {
+    flex: 0 0 80px;
+    min-width: 80px;
+}
+
+.spacebar {
+    flex: 0 0 200px;
+    min-width: 200px;
+}
+
+.function-key {
+    background: linear-gradient(145deg, #3a4a5c, #2c3e50);
+    font-size: 9px;
+}
+
+/* Heatmap colors */
+.heat-1 {
+    background: linear-gradient(145deg, #1a4c96, #2d5aa0) !important;
+    box-shadow: 0 0 10px rgba(26, 76, 150, 0.5);
+}
+
+.heat-2 {
+    background: linear-gradient(145deg, #2d5aa0, #4a90a4) !important;
+    box-shadow: 0 0 12px rgba(45, 90, 160, 0.6);
+}
+
+.heat-3 {
+    background: linear-gradient(145deg, #4a90a4, #68c5a8) !important;
+    box-shadow: 0 0 14px rgba(74, 144, 164, 0.7);
+}
+
+.heat-4 {
+    background: linear-gradient(145deg, #68c5a8, #8ee4af) !important;
+    box-shadow: 0 0 16px rgba(104, 197, 168, 0.8);
+}
+
+.heat-5 {
+    background: linear-gradient(145deg, #8ee4af, #b7f7b7) !important;
+    box-shadow: 0 0 18px rgba(142, 228, 175, 0.9);
+}
+
+.heat-6 {
+    background: linear-gradient(145deg, #b7f7b7, #ffe066) !important;
+    box-shadow: 0 0 20px rgba(183, 247, 183, 1);
+}
+
+.heat-7 {
+    background: linear-gradient(145deg, #ffe066, #ffcc33) !important;
+    box-shadow: 0 0 22px rgba(255, 224, 102, 1);
+}
+
+.heat-8 {
+    background: linear-gradient(145deg, #ffcc33, #ff9933) !important;
+    box-shadow: 0 0 24px rgba(255, 204, 51, 1);
+}
+
+.heat-9 {
+    background: linear-gradient(145deg, #ff9933, #ff6633) !important;
+    box-shadow: 0 0 26px rgba(255, 153, 51, 1);
+}
+
+.heat-10 {
+    background: linear-gradient(145deg, #ff6633, #ff3333) !important;
+    box-shadow: 0 0 28px rgba(255, 102, 51, 1);
+    border-color: #ff6633 !important;
+}
+
+.key-pressed {
+    transform: scale(0.95);
+    background: linear-gradient(145deg, #4ecdc4, #45b7b8) !important;
+}
+
+.typing-area {
+    margin-top: 30px;
+}
+
+#typingArea {
+    width: 100%;
+    min-height: 120px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    resize: vertical;
+    backdrop-filter: blur(10px);
+}
+
+#typingArea:focus {
+    outline: none;
+    border-color: #4ecdc4;
+    box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+}
+
+#typingArea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .keyboard-container {
+        padding: 15px 10px;
+        overflow-x: auto;
+    }
+    
+    .keyboard-row {
+        min-width: 600px;
+    }
+    
+    .stats {
+        gap: 15px;
+    }
+    
+    .stat-item {
+        padding: 10px 15px;
+    }
+    
+    .controls {
+        gap: 10px;
+    }
+    
+    .btn {
+        padding: 10px 18px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .key {
+        min-height: 35px;
+        min-width: 35px;
+        flex: 0 0 35px;
+        font-size: 9px;
+    }
+    
+    .wide-key {
+        flex: 0 0 50px;
+        min-width: 50px;
+    }
+    
+    .extra-wide-key {
+        flex: 0 0 65px;
+        min-width: 65px;
+    }
+    
+    .spacebar {
+        flex: 0 0 150px;
+        min-width: 150px;
+    }
+}
