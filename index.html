@@ -7,57 +7,71 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Keyboard Heatmap Visualizer</h1>
-            <p>Start typing to see your keyboard usage patterns!</p>
-        </div>
-
-        <div class="controls">
+    <div class="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-title">Controls</div>
             <button class="btn btn-primary" id="toggleMode">Switch to Cumulative</button>
             <button class="btn btn-secondary" id="clearData">Clear Data</button>
             <button class="btn btn-success" id="exportImage">Export Heatmap</button>
             <button class="btn btn-minimize" id="minimizeBtn">Minimize</button>
         </div>
 
-        <div class="session-stats" id="sessionStats">
-            <div class="session-header">
-                <span class="session-title">Current Session</span>
-                <span class="session-time" id="sessionTime">00:00</span>
-            </div>
-            <div class="session-summary">
-                <div class="session-metric">
-                    <span class="session-metric-value" id="sessionKeys">0</span>
-                    <span class="session-metric-label">Keys</span>
+        <div class="sidebar-section">
+            <div class="sidebar-title">Statistics</div>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-row">
+                        <span class="stat-label">Total Keys:</span>
+                        <span class="stat-value" id="totalKeys">0</span>
+                    </div>
                 </div>
-                <div class="session-metric">
-                    <span class="session-metric-value" id="sessionWPM">0</span>
-                    <span class="session-metric-label">WPM</span>
+                <div class="stat-item">
+                    <div class="stat-row">
+                        <span class="stat-label">Most Used:</span>
+                        <span class="stat-value" id="mostUsed">-</span>
+                    </div>
                 </div>
-                <div class="session-metric">
-                    <span class="session-metric-value" id="sessionAccuracy">100%</span>
-                    <span class="session-metric-label">Accuracy</span>
-                </div>
-                <div class="session-metric">
-                    <span class="session-metric-value" id="sessionTopKey">-</span>
-                    <span class="session-metric-label">Top Key</span>
+                <div class="stat-item">
+                    <div class="stat-row">
+                        <span class="stat-label">Mode:</span>
+                        <span class="stat-value" id="currentMode">Live View</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="stats">
-            <div class="stat-item">
-                <span class="stat-label">Total Keys:</span>
-                <span class="stat-value" id="totalKeys">0</span>
+        <div class="sidebar-section">
+            <div class="session-stats" id="sessionStats">
+                <div class="session-header">
+                    <span class="session-title">Current Session</span>
+                    <span class="session-time" id="sessionTime">00:00</span>
+                </div>
+                <div class="session-summary">
+                    <div class="session-metric">
+                        <span class="session-metric-label">Keys</span>
+                        <span class="session-metric-value" id="sessionKeys">0</span>
+                    </div>
+                    <div class="session-metric">
+                        <span class="session-metric-label">WPM</span>
+                        <span class="session-metric-value" id="sessionWPM">0</span>
+                    </div>
+                    <div class="session-metric">
+                        <span class="session-metric-label">Accuracy</span>
+                        <span class="session-metric-value" id="sessionAccuracy">100%</span>
+                    </div>
+                    <div class="session-metric">
+                        <span class="session-metric-label">Top Key</span>
+                        <span class="session-metric-value" id="sessionTopKey">-</span>
+                    </div>
+                </div>
             </div>
-            <div class="stat-item">
-                <span class="stat-label">Most Used:</span>
-                <span class="stat-value" id="mostUsed">-</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Mode:</span>
-                <span class="stat-value" id="currentMode">Live View</span>
-            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Keyboard Heatmap Visualizer</h1>
+            <p>Start typing to see your keyboard usage patterns!</p>
         </div>
 
         <div class="keyboard-container" id="keyboardContainer">
